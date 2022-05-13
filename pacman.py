@@ -1,4 +1,3 @@
-
 from random import choice
 from turtle import *
 
@@ -78,26 +77,27 @@ def valid(point):
     return point.x % 20 == 0 or point.y % 20 == 0
 
 
-def world(): #Se dibuja el tablero
+# Se dibuja el tablero
+def world():
     """Draw world using path."""
     bgcolor('black')
     path.color('orange')
-
     for index in range(len(tiles)):
         tile = tiles[index]
-
         if tile > 0:
             x = (index % 20) * 20 - 200
             y = 180 - (index // 20) * 20
             square(x, y)
-
             if tile == 1:
                 path.up()
                 path.goto(x + 10, y + 10)
-                path.dot(3, 'black')  #color y tamaño de los puntos 
+                # color y tamaño de los puntos
+                path.dot(3, 'black')
+
+# funcion para  over al pacman y fantasmas
 
 
-def move():  #funcion para  over al pacmn y fantasmas
+def move():
     """Move pacman and all ghosts."""
     writer.undo()
     writer.write(state['score'])
@@ -118,7 +118,8 @@ def move():  #funcion para  over al pacmn y fantasmas
 
     up()
     goto(pacman.x + 10, pacman.y + 10)
-    dot(20, 'white') #Color y tamaño del pacman
+    # Color y tamaño del pacman
+    dot(20, 'white')
 
     for point, course in ghosts:
         if valid(point + course):
@@ -136,7 +137,8 @@ def move():  #funcion para  over al pacmn y fantasmas
 
         up()
         goto(point.x + 10, point.y + 10)
-        dot(20, 'black') #Color y tamaño de los fantasmas
+        # Color y tamaño de los fantasmas
+        dot(20, 'black')
 
     update()
 
@@ -144,7 +146,7 @@ def move():  #funcion para  over al pacmn y fantasmas
         if abs(pacman - point) < 20:
             return
 
-    ontimer(move,2)
+    ontimer(move, 2)
 
 
 def change(x, y):

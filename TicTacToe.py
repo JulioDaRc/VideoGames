@@ -8,27 +8,28 @@ def line(a, b, x, y):
     goto(x, y)
 
 def draw_grid():
-    "Draw tic-tac-toe grid."
     line(-67, 200, -67, -200)
     line(67, 200, 67, -200)
     line(-200, -67, 200, -67)
     line(-200, 67, 200, 67)
+    "Dibuja el Tablero del Gato."
 
 def drawx(x, y):
-    "Draw X player."
     line(x, y, x + 133, y + 133)
     line(x, y + 133, x + 133, y)
+    "Dibuja al jugador X"
 
 def drawo(x, y):
-    "Draw O player."
+    "Dibuja al jugador O"
     up()
     goto(x + 67, y + 15)
     down()
     circle(50)
-
+    "Dibuja al jugador O"
+    
 def floor(value):
-    "Round value down to grid with square size 133."
     return ((value + 200) // 133) * 133 - 200
+    "Redondea el valor a la cuadricula con tamaño 133."
 
 state = State()
 
@@ -36,12 +37,12 @@ players = [drawx, drawo]
 
 
 def tap(x, y):
-    "Draw X or O in tapped square."
     x = floor(x)
     y = floor(y)
     player = state.player
     grid = state.grid;
     item = state.get_grid_item(x, y)
+    "Dibuja X o O en el cuadrado respectivamente."
     
     if(grid[item[0]][item[1]] is not None):
       print("Cuadrado ya tomado")

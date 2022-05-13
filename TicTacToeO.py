@@ -12,8 +12,8 @@ def grid():
 
 
 def drawx(x, y):
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+    line(x, y, x + 135, y + 135)
+    line(x, y + 135, x + 135, y)
     """Esta función toma los parámetros x e y que dibujaran la marca de cruz para el jugador."""
 
 

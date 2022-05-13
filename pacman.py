@@ -144,7 +144,7 @@ def move():  #funcion para  over al pacmn y fantasmas
         if abs(pacman - point) < 20:
             return
 
-    ontimer(move,100)
+    ontimer(move,2)
 
 
 def change(x, y):
